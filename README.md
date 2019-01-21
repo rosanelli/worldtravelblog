@@ -9,4 +9,4 @@ I ported my travel blog from tumblr to reactjs.
 5. Configured DNS to point to s3 for my domain
 6. Added Cloudfront to cache website
 
-Enjoy [http://worldtravelblog.com] 
+Enjoy http://worldtravelblog.com
