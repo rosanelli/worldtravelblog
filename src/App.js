@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import './app.scss';
+import Header from './Header';
+import Main from './Main';
+import NoMatch from './NoMatch';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = props => (
+  <div className="container">
+    <Header />
+
+    <Switch>
+      <Route exact path='/' render={(props) => <Main /> } />
+      <Route path='/page/:page' render={(props) => <Main currentPage={Number(props.match.params.page) || 1} /> } />
+      <Route path='/tag/:tag/(page)*/:page?' render={(props) => <Main tag={props.match.params.tag} currentPage={Number(props.match.params.page) || 1} /> } />
+      <Route path='/post/:id/:slug' render={(props) => <Main currentPage={1} id={Number(props.match.params.id)} /> } />
+      <Route component={NoMatch} />
+    </Switch>         
+  </div>
+)
 
 export default App;

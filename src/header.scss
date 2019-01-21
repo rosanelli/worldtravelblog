@@ -1,0 +1,50 @@
+#header {
+  @media (max-width: 576px) {
+    font-size: 1.2rem;
+  }
+
+  a {
+    color: black;
+  }
+}
+
+#banner {
+  position: relative;
+
+  &:hover {
+    #banner-overlay {
+      opacity: 1;
+    }
+  }
+
+  #banner-overlay {
+    position: absolute; 
+    bottom: 0; 
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    padding: 20px;
+  }
+}
+
+#countries {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;	
+  text-transform: uppercase;
+  padding-left: 0;
+
+  li {
+    display: block;
+    flex: 0 1 auto;
+    list-style-type: none;
+
+    a {
+      letter-spacing: 0.1em;
+      color: #545454;
+    }
+  }
+}
