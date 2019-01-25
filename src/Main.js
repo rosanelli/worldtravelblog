@@ -6,61 +6,61 @@ import { PER_PAGE } from './constants';
 
 class Main extends Component {
 
-	constructor(props) {
-		super(props);		
-		this.state = {
-			posts: []
-		}
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: []
+    }
+  }
 
-	componentDidMount() {
-    this.setState({ 
-    	posts: blogData, 
-    	totalPages: blogData.length / PER_PAGE 
+  componentDidMount() {
+    this.setState({
+      posts: blogData,
+      totalPages: blogData.length / PER_PAGE
     })
   }
 
   selectPosts() {
-		const start = (this.props.currentPage - 1) * PER_PAGE
-		const end = start + PER_PAGE
+    const start = (this.props.currentPage - 1) * PER_PAGE
+    const end = start + PER_PAGE
 
-		let posts = this.state.posts
-		if(this.props.tag) {
-			posts = this.getTaggedPosts(this.props.tag)
-		} else if(this.props.id) {
-			posts = this.getPostById(this.props.id)
-		}
-		
-		return { 
-			singlePage: (this.props.id !== undefined),
-			tag: this.props.tag,
-			posts: posts.slice(start, end), 
-			currentPage: this.props.currentPage,
-			totalPages: Math.ceil(posts.length / PER_PAGE) 
-		} 		
+    let posts = this.state.posts
+    if(this.props.tag) {
+      posts = this.getTaggedPosts(this.props.tag)
+    } else if(this.props.id) {
+      posts = this.getPostById(this.props.id)
+    }
+
+    return {
+      singlePage: (this.props.id !== undefined),
+      tag: this.props.tag,
+      posts: posts.slice(start, end),
+      currentPage: this.props.currentPage,
+      totalPages: Math.ceil(posts.length / PER_PAGE)
+    }
   }
 
   getTaggedPosts(tag) {
-  	return this.state.posts.filter(post =>
-			post.tags.includes(this.props.tag.toLowerCase())
-		)
+    return this.state.posts.filter(post =>
+      post.tags.includes(this.props.tag.toLowerCase())
+    )
   }
 
   getPostById(id) {
-  	const post = this.state.posts.find(post =>
-  		post.id === id
-		)
+    const post = this.state.posts.find(post =>
+      post.id === id
+    )
 
-		return (post) ? [post] : []
+    return (post) ? [post] : []
   }
 
-	render() {
-		return (
-			<div>
-				<Posts {...this.selectPosts()} />				
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div>
+        <Posts {...this.selectPosts()} />
+      </div>
+    )
+  }
 }
 
 Main.propTypes = {

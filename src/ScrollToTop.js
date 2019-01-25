@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import ReactDOM from 'react-dom'
 
 class ScrollToTop extends Component {
-  componentDidUpdate(prevProps) {	
+  componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       ReactDOM.findDOMNode(this).scrollIntoView({ behavior: 'smooth', block: 'start' })
     }

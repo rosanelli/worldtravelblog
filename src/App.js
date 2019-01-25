@@ -15,7 +15,7 @@ const App = props => (
       <Route path='/tag/:tag/(page)*/:page?' render={(props) => <Main tag={props.match.params.tag} currentPage={Number(props.match.params.page) || 1} /> } />
       <Route path='/post/:id/:slug' render={(props) => <Main currentPage={1} id={Number(props.match.params.id)} /> } />
       <Route component={NoMatch} />
-    </Switch>         
+    </Switch>
   </div>
 )
 
