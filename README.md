@@ -1,6 +1,6 @@
 # World Travel Blog
 
-I don't have a lot of React experience but I wanted to demonstrate my eagerness to learn by taking a couple of days to port my old tumblr travel blog to reactjs.
+Ported old tumblr travel blog to reactjs.
 
 Steps:
 1. Exported blog data from tumblr which included xml and blog images
