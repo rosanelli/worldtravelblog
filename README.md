@@ -12,6 +12,6 @@ Steps:
 Enjoy https://worldtravelblog.com
 
 
-Local: `npm start`
-
-Build: `yarn build`
+Locally: `yarn start`
+Prod build: `yarn build`
+Prod deploy: `yarn deploy`
