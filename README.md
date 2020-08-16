@@ -9,4 +9,9 @@ Steps:
 4. Deployed app to s3 using static website hosting feature
 5. Configured DNS to point to Cloudfront for my domain
 
-Enjoy http://worldtravelblog.com
+Enjoy https://worldtravelblog.com
+
+
+Local: `npm start`
+
+Build: `yarn build`
